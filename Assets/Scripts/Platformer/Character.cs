@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class Character : MonoBehaviour
 {
     public Rigidbody2D rb2d;
     public Vector2 velocity;
