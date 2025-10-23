@@ -1,19 +1,15 @@
+using UnityEngine;
+
 namespace Clicker
 {
-    public class ClickerUp : Upgrades
+    public class CriticalDamage : Upgrades
     {
-        public override void Start()
-        {
-            base.Start();
-            clickerManager = GetComponent<ClickerManager>();
-            print("Переопределенный метод Start в классе ClickerUp");
-        }
-        
+        public bool isActive;
         public void Apply()
         {
             if (clickerManager.counterMoney >= cost)
             {
-                ExchangeMoneyOnPower();
+                ExchangeMoneyOnCriticalCoefficient();
                 cost = (int)(cost * multiplierCost);
                 UpgradeUI();
                 print("Ураааааааааа!");
