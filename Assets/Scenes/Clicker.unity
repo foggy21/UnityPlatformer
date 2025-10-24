@@ -131,6 +131,8 @@ GameObject:
   - component: {fileID: 31271490}
   - component: {fileID: 31271489}
   - component: {fileID: 31271488}
+  - component: {fileID: 31271491}
+  - component: {fileID: 31271492}
   m_Layer: 5
   m_Name: PassiveBoost
   m_TagString: Untagged
@@ -204,13 +206,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 288264346}
-        m_TargetAssemblyTypeName: Clicker.PassiveIncomeUp, Assembly-CSharp
-        m_MethodName: Apply
-        m_Mode: 1
+      - m_Target: {fileID: 1698566571}
+        m_TargetAssemblyTypeName: Clicker.Game.Shop.ShopOfUpgrades, Assembly-CSharp
+        m_MethodName: BuyService
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 31271491}
+          m_ObjectArgumentAssemblyTypeName: Clicker.Services.Service, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -254,6 +256,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31271486}
   m_CullTransparentMesh: 1
+--- !u!114 &31271491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31271486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c391143b5d7e94397650608ceac9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyIncome: 1
+  _cost: 75
+  _upgradedCost: 20
+  _upgradedIncome: 1
+  OnUpgrade:
+    m_PersistentCalls:
+      m_Calls: []
+  _incomeTime: 5
+  _afkTime: 5
+  _boostCoefficient: 5
+--- !u!114 &31271492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31271486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0ad556ea848a4c84023fa9c581f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bonus: {fileID: 1712808596}
+  _cost: {fileID: 1997420244}
 --- !u!1 &132330609
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,8 +666,10 @@ GameObject:
   - component: {fileID: 288186673}
   - component: {fileID: 288186672}
   - component: {fileID: 288186671}
+  - component: {fileID: 288186675}
+  - component: {fileID: 288186674}
   m_Layer: 5
-  m_Name: ClickerUP
+  m_Name: ClickerUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -701,13 +741,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 288264345}
-        m_TargetAssemblyTypeName: Clicker.ClickerUp, Assembly-CSharp
-        m_MethodName: Apply
-        m_Mode: 1
+      - m_Target: {fileID: 1698566571}
+        m_TargetAssemblyTypeName: Clicker.Game.Shop.ShopOfUpgrades, Assembly-CSharp
+        m_MethodName: BuyService
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 288186675}
+          m_ObjectArgumentAssemblyTypeName: Clicker.Services.Service, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -751,95 +791,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288186669}
   m_CullTransparentMesh: 1
---- !u!1 &288264342
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 288264344}
-  - component: {fileID: 288264343}
-  - component: {fileID: 288264345}
-  - component: {fileID: 288264346}
-  m_Layer: 0
-  m_Name: ClickerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &288264343
+--- !u!114 &288186674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 288264342}
+  m_GameObject: {fileID: 288186669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae9cd24328cc36a41add52f544afcaaf, type: 3}
+  m_Script: {fileID: 11500000, guid: 2da0ad556ea848a4c84023fa9c581f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyText: {fileID: 408053160}
-  counterMoney: 0
-  clickPower: 1
-  passivePower: 0
---- !u!4 &288264344
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 288264342}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &288264345
+  _bonus: {fileID: 1492726861}
+  _cost: {fileID: 987789483}
+--- !u!114 &288186675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 288264342}
+  m_GameObject: {fileID: 288186669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90a0b09a2f433d94db78e1b1e3474036, type: 3}
+  m_Script: {fileID: 11500000, guid: 28b72498bac81eb4f9fb6f599b67d58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickerManager: {fileID: 288264343}
-  cost: 50
-  incomePower: 2
-  multiplierCost: 2
-  costText: {fileID: 987789483}
-  bonusPowerText: {fileID: 1492726861}
---- !u!114 &288264346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 288264342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69024d19bcf5b76418ed5f88eb14e04c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickerManager: {fileID: 288264343}
-  cost: 5
-  incomePower: 0
-  multiplierCost: 2
-  costText: {fileID: 1644453787}
-  bonusPowerText: {fileID: 350285642}
-  incomeTime: 2
-  incomeCurrentTime: 0
-  isActive: 0
+  _moneyIncome: 1
+  _cost: 10
+  _upgradedCost: 10
+  _upgradedIncome: 1
+  OnUpgrade:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &346932313
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000022174943}
+  m_AnchoredPosition: {x: 0, y: 0.0000014001054}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &350285641
@@ -1097,8 +1081,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2068418544}
   m_HandleRect: {fileID: 2068418543}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.9987159
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1153,8 +1137,10 @@ GameObject:
   - component: {fileID: 376503606}
   - component: {fileID: 376503605}
   - component: {fileID: 376503604}
+  - component: {fileID: 376503608}
+  - component: {fileID: 376503607}
   m_Layer: 5
-  m_Name: PassiveIncome
+  m_Name: PassiveIncomeUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1226,13 +1212,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 288264346}
-        m_TargetAssemblyTypeName: Clicker.PassiveIncomeUp, Assembly-CSharp
-        m_MethodName: Apply
-        m_Mode: 1
+      - m_Target: {fileID: 1698566571}
+        m_TargetAssemblyTypeName: Clicker.Game.Shop.ShopOfUpgrades, Assembly-CSharp
+        m_MethodName: BuyService
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 376503608}
+          m_ObjectArgumentAssemblyTypeName: Clicker.Services.Service, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1276,6 +1262,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376503602}
   m_CullTransparentMesh: 1
+--- !u!114 &376503607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376503602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0ad556ea848a4c84023fa9c581f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bonus: {fileID: 350285642}
+  _cost: {fileID: 1644453787}
+--- !u!114 &376503608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376503602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7e3b6a31cb71048b55c20b9d8463da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyIncome: 2
+  _cost: 50
+  _upgradedCost: 15
+  _upgradedIncome: 2
+  OnUpgrade:
+    m_PersistentCalls:
+      m_Calls: []
+  _incomeTime: 2
 --- !u!1 &385075581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1353,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Click Me!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -1560,7 +1580,7 @@ GameObject:
   - component: {fileID: 408053161}
   - component: {fileID: 408053160}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2076,6 +2096,7 @@ GameObject:
   - component: {fileID: 1026542376}
   - component: {fileID: 1026542375}
   - component: {fileID: 1026542374}
+  - component: {fileID: 1026542378}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2168,6 +2189,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1026542378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026542373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dada1d130d436ca4e8f6afe05d112b2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _money: {fileID: 408053160}
+--- !u!1 &1210445414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1210445416}
+  - component: {fileID: 1210445415}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1210445415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210445414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c6332dbe7c7c9468b1deb0aa8b35cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1210445416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210445414}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1428289511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,7 +2295,7 @@ GameObject:
   - component: {fileID: 1474017181}
   - component: {fileID: 1474017180}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ClickButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2287,9 +2365,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 288264343}
-        m_TargetAssemblyTypeName: Clicker.ClickerManager, Assembly-CSharp
-        m_MethodName: OnClick
+      - m_Target: {fileID: 1210445415}
+        m_TargetAssemblyTypeName: Clicker.Core.GameManager, Assembly-CSharp
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2881,6 +2959,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677807789}
   m_CullTransparentMesh: 1
+--- !u!1 &1698566570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1698566572}
+  - component: {fileID: 1698566571}
+  m_Layer: 0
+  m_Name: Shop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1698566571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698566570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff639884ee7bcc444a8e6f9ddb5bf47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1698566572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698566570}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1712808594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3400,6 +3522,8 @@ GameObject:
   - component: {fileID: 2146742757}
   - component: {fileID: 2146742756}
   - component: {fileID: 2146742755}
+  - component: {fileID: 2146742759}
+  - component: {fileID: 2146742758}
   m_Layer: 5
   m_Name: CriticalDamage
   m_TagString: Untagged
@@ -3473,9 +3597,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 288264346}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Clicker.PassiveIncomeUp, Assembly-CSharp
-        m_MethodName: Apply
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3523,6 +3647,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146742753}
   m_CullTransparentMesh: 1
+--- !u!114 &2146742758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146742753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0ad556ea848a4c84023fa9c581f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bonus: {fileID: 1522390511}
+  _cost: {fileID: 132330611}
+--- !u!114 &2146742759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146742753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceeb43a413c04394689083f7662d4c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyIncome: 3
+  _cost: 60
+  _upgradedCost: 50
+  _upgradedIncome: 3
+  OnUpgrade:
+    m_PersistentCalls:
+      m_Calls: []
+  _multiplyCoefficient: 3
+  _clicksForMultiply: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3530,4 +3689,5 @@ SceneRoots:
   - {fileID: 1847107289}
   - {fileID: 1026542377}
   - {fileID: 1783323527}
-  - {fileID: 288264344}
+  - {fileID: 1210445416}
+  - {fileID: 1698566572}
